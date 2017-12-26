@@ -1,0 +1,43 @@
+<div style="position: relative">
+    <div class="mainContainer">
+        <div class="tagsContainer">
+            <div id="{{tagIdPrefix + $index}}"
+                 ng-repeat="tag in tagsForShow"
+                 ng-class="getTagClass()"
+                 ng-attr-title="getTagTooltip(tag)">{{tag.text}}
+                <a ng-class="getRemoveButtonClass(tag)"
+                   ng-click="$removeTag(tag, $index, true)">×</a>
+            </div>
+
+        </div>
+        <div class="dropdownContainer"
+             ng-show="tagsForDropdown.length != 0">
+            <div style="cursor: pointer"
+                 class="btn-group"
+                 dropdown
+                 is-open="status.isopen">
+                <div id="single-button"
+                     dropdown-toggle
+                     ng-disabled="disabled"
+                     ng-class="getTagClass()">+{{tagsForDropdown.length}} more
+                </div>
+                <ul class="dropdown-menu custom-dropdown-menu" ng-show="show"
+                    role="menu"
+                    aria-labelledby="single-button">
+                    <li ng-repeat="tag in tagsForDropdown"
+                        role="menuitem"
+                        class="menu-item">
+                        <div class="dropdown-tag-text"
+                             ng-attr-title="getTagTooltip(tag)">
+                            {{tag.text}}
+                        </div>
+                        <div class="dropdown-remove-icon">
+                            <a ng-class="getRemoveButtonClass(tag)"
+                               ng-click="$removeTag(tag, $index, false)">×</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
