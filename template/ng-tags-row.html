@@ -4,7 +4,7 @@
             <div id="{{tagIdPrefix + $index}}"
                  ng-repeat="tag in tagsForShow"
                  ng-class="getTagClass()"
-                 ng-attr-title="getTagTooltip(tag)">{{tag.text}}
+                 ng-attr-title="{{getTagTooltip(tag)}}">{{tag.text}}
                 <a ng-class="getRemoveButtonClass(tag)"
                    ng-click="$removeTag(tag, $index, true)">×</a>
             </div>
@@ -28,7 +28,7 @@
                         role="menuitem"
                         class="menu-item">
                         <div class="dropdown-tag-text"
-                             ng-attr-title="getTagTooltip(tag)">
+                             ng-attr-title="{{getTagTooltip(tag)}}">
                             {{tag.text}}
                         </div>
                         <div class="dropdown-remove-icon">

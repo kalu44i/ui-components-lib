@@ -53,11 +53,11 @@
 
 .custom-dropdown-menu {
     right: 0;
-    left: auto;
+    left: auto !important;
     height: 300px;
     overflow-y: scroll;
     white-space: nowrap;
-    padding: 8px 12px;
+    padding: 8px 12px !important;
 }
 
 .dropdown-tag-text {

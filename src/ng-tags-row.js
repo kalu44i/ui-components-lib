@@ -44,7 +44,7 @@ angular.module('ngTagsRow', []).directive('tagsViewer', function () {
             onTagRemoved: '&?',
             tooltipOn: '@?'
         },
-        templateUrl: '/ng-tags-row.html',
+        templateUrl: 'template/ng-tags-row.html',
         replace: false,
         transclude: true,
         link: function (scope) {
@@ -102,10 +102,8 @@ angular.module('ngTagsRow', []).directive('tagsViewer', function () {
                 setVisAndPos("hidden", "absolute");
                 if (isMainTag) {
                     scope.tags = spliceNoMutate(scope.tags, index);
-                    // scope.tags.splice(index, 1);
                 } else {
-                    scope.tags = spliceNoMutate(scope.tags, index);
-                    // scope.tags.splice(index + scope.lastMainIndex + 1, 1);
+                    scope.tags = spliceNoMutate(scope.tags, index + scope.lastMainIndex + 1);
                 }
                 if (scope.onTagRemoved) {
                     scope.onTagRemoved({$tag: tag});
